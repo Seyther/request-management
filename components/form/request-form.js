@@ -1,11 +1,14 @@
 import { useRef } from 'react';
 import { Form, Button, Container, Row, Col, Jumbotron } from 'react-bootstrap';
+import { useRouter } from 'next/router';
+
 import classes from './request-form.module.css';
 
 const RequestForm = () => {
   const requestorInputRef = useRef();
   const titleInputRef = useRef();
   const descInputRef = useRef();
+  const router = useRouter();
 
   const submitFormHandler = event => {
     event.preventDefault();
@@ -19,6 +22,23 @@ const RequestForm = () => {
       title: title,
       desc: desc
     });
+
+    fetch('/api/request', {
+      method: 'POST',
+      body: {
+        requestor: requestor,
+        title: title,
+        desc: desc
+      },
+      type: 'application/json'
+    })
+      .then(result => {
+        console.log('success!');
+        router.push('/requests');
+      })
+      .catch(err => {
+        console.log('failed!');
+      });
   };
 
   return (

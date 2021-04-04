@@ -1,5 +1,6 @@
 .Navigation {
   display: flex;
+  justify-content: space-between;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -13,6 +14,7 @@
 }
 
 .Logo a {
+  color: black;
   text-decoration: none;
 }
 
@@ -23,7 +25,6 @@
 
 .NavList {
   display: flex;
-  justify-content: space-between;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -31,16 +32,17 @@
 
 .NavList li {
   text-align: center;
-  margin-right: 10px;
   height: 100%;
   padding: 14px 16px;
 }
 
 .NavList li a {
+  color: black;
   text-decoration: none;
 }
 
-.NavList li:hover {
+.NavList li:hover,
+.ActiveLink {
   background-color: aquamarine;
   color: black;
   cursor: pointer;
