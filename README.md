@@ -1,2 +1,2 @@
-# request-management
-Request Management System built using React &amp; NextJS
+# Request Management System
+- Built using ReactJS and NextJS
