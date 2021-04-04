@@ -1,0 +1,51 @@
+.Navigation {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: darkcyan;
+  font-weight: bold;
+  color: black;
+}
+
+.Logo {
+  padding: 14px 16px;
+}
+
+.Logo a {
+  text-decoration: none;
+}
+
+.Logo a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.NavList {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.NavList li {
+  text-align: center;
+  margin-right: 10px;
+  height: 100%;
+  padding: 14px 16px;
+}
+
+.NavList li a {
+  text-decoration: none;
+}
+
+.NavList li:hover {
+  background-color: aquamarine;
+  color: black;
+  cursor: pointer;
+}
+
+.NavList li a:hover {
+  color: black;
+}
