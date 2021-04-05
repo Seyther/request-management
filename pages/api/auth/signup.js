@@ -1,10 +1,9 @@
 import { hashPassword } from '../../../lib/auth';
 import { connectToDatabase } from '../../../lib/db';
 
-export const handler = async (req, res) => {
+export default async (req, res) => {
   const { username, password } = req.body;
-
-  if (password.length < 8) {
+  if (password.trim().length < 8) {
     res.status(422).json({ message: 'Password too short!' });
     return;
   }

@@ -14,7 +14,32 @@ const AuthForm = () => {
 
   const authSubmitHandler = event => {
     event.preventDefault();
-    console.log('Authenticating...');
+
+    if (signUp) {
+      console.log('Signing up...');
+
+      const username = usernameInputRef.current.value;
+      const password = passwordInputRef.current.value;
+
+      fetch('/api/auth/signup', {
+        method: 'POST',
+        body: JSON.stringify({
+          username,
+          password
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(result => {
+          console.log(result);
+        })
+        .catch(err => {
+          console.log('Sign up failed!');
+        });
+    } else {
+      console.log('Authenticating...');
+    }
   };
 
   return (
@@ -23,7 +48,7 @@ const AuthForm = () => {
         <Row>
           <Col>
             <Jumbotron>
-              <h1>{signUp ? 'Log In' : 'Sign Up New Account'}</h1>
+              <h1>{signUp ? 'Sign Up New Account' : 'Log In'}</h1>
               <Form onSubmit={authSubmitHandler}>
                 <Form.Group>
                   <Form.Label>Username:</Form.Label>

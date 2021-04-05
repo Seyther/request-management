@@ -17,19 +17,13 @@ const RequestForm = () => {
     const title = titleInputRef.current.value;
     const desc = descInputRef.current.value;
 
-    console.log({
-      requestor: requestor,
-      title: title,
-      desc: desc
-    });
-
     fetch('/api/request', {
       method: 'POST',
-      body: {
-        requestor: requestor,
-        title: title,
-        desc: desc
-      },
+      body: JSON.stringify({
+        requestor,
+        title,
+        desc
+      }),
       headers: {
         'Content-Type': 'application/json'
       }
