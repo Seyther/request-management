@@ -30,7 +30,9 @@ const RequestForm = () => {
         title: title,
         desc: desc
       },
-      type: 'application/json'
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
       .then(result => {
         console.log('success!');

@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { signout } from 'next-auth/client';
+
 import classes from './navigation.module.css';
 
 const Navigation = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const router = useRouter();
-  console.log(router.pathname);
+
+  const signOutHandler = () => {
+    signout();
+  };
 
   return (
     <nav className={classes.Navigation}>
@@ -17,13 +22,15 @@ const Navigation = () => {
         <li className={router.pathname === '/' ? classes.ActiveLink : null}>
           <Link href="/">Home</Link>
         </li>
-        <li
-          className={
-            router.pathname === '/requests' ? classes.ActiveLink : null
-          }
-        >
-          <Link href="/requests">View Requests</Link>
-        </li>
+        {loggedIn && (
+          <li
+            className={
+              router.pathname === '/requests' ? classes.ActiveLink : null
+            }
+          >
+            <Link href="/requests">View Requests</Link>
+          </li>
+        )}
         {loggedIn && (
           <li
             className={
@@ -38,6 +45,11 @@ const Navigation = () => {
         >
           <Link href="/login">Login</Link>
         </li>
+        {loggedIn && (
+          <li>
+            <button onClick={signOutHandler}>Logout</button>
+          </li>
+        )}
       </ul>
     </nav>
   );
