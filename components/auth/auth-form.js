@@ -1,25 +1,29 @@
 import { useState, useRef } from 'react';
 import { Container, Row, Col, Jumbotron, Form, Button } from 'react-bootstrap';
+import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/client';
+
 import classes from './auth-form.module.css';
+import Router from 'next/dist/next-server/lib/router/router';
 
 const AuthForm = () => {
   const [signUp, setSignUp] = useState(false);
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
+  const router = useRouter();
 
   const authToggleHandler = () => {
-    console.log(signUp);
     setSignUp(!signUp);
   };
 
-  const authSubmitHandler = event => {
+  const authSubmitHandler = async event => {
     event.preventDefault();
+
+    const username = usernameInputRef.current.value;
+    const password = passwordInputRef.current.value;
 
     if (signUp) {
       console.log('Signing up...');
-
-      const username = usernameInputRef.current.value;
-      const password = passwordInputRef.current.value;
 
       fetch('/api/auth/signup', {
         method: 'POST',
@@ -32,13 +36,23 @@ const AuthForm = () => {
         }
       })
         .then(result => {
-          console.log(result);
+          console.log('Sign up successful!');
         })
         .catch(err => {
           console.log('Sign up failed!');
         });
     } else {
-      console.log('Authenticating...');
+      const result = await signIn('credentials', {
+        redirect: false,
+        username: username,
+        password: password
+      });
+
+      if (result.error) {
+        alert(result.error);
+      } else {
+        router.push('/');
+      }
     }
   };
 

@@ -1,8 +1,10 @@
+import NotFound from '../components/error/404';
+
 const PageNotFound = () => {
   return (
-    <div>
-      <h1 style={{ textAlign: 'center' }}>Page Not Found</h1>
-    </div>
+    <>
+      <NotFound />
+    </>
   );
 };
 

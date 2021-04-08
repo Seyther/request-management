@@ -35,5 +35,14 @@ export default NextAuth({
         return { username: user.username };
       }
     })
-  ]
+  ],
+  callbacks: {
+    async session(session, token) {
+      return { ...session, ...token };
+    },
+    async jwt(token, user, account, profile, isNewUser) {
+      token = { ...token, ...user };
+      return token;
+    }
+  }
 });

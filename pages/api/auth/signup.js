@@ -13,7 +13,7 @@ export default async (req, res) => {
   const db = client.db();
 
   const userExists = await db
-    .collection('user')
+    .collection('users')
     .findOne({ username: username });
 
   if (userExists) {
@@ -26,7 +26,7 @@ export default async (req, res) => {
 
   const hashedPassword = await hashPassword(password);
 
-  const result = await db.collection('user').insertOne({
+  const result = await db.collection('users').insertOne({
     username: username,
     password: hashedPassword
   });
