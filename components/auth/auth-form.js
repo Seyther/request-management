@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/client';
 
 import classes from './auth-form.module.css';
-import Router from 'next/dist/next-server/lib/router/router';
 
 const AuthForm = () => {
   const [signUp, setSignUp] = useState(false);
@@ -57,41 +56,39 @@ const AuthForm = () => {
   };
 
   return (
-    <div className={classes.AuthForm}>
-      <Container>
-        <Row>
-          <Col>
-            <Jumbotron>
-              <h1>{signUp ? 'Sign Up New Account' : 'Log In'}</h1>
-              <Form onSubmit={authSubmitHandler}>
-                <Form.Group>
-                  <Form.Label>Username:</Form.Label>
-                  <Form.Row>
-                    <Col>
-                      <Form.Control ref={usernameInputRef} />
-                    </Col>
-                  </Form.Row>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Password:</Form.Label>
-                  <Form.Row>
-                    <Col>
-                      <Form.Control type="password" ref={passwordInputRef} />
-                    </Col>
-                  </Form.Row>
-                </Form.Group>
-                <Form.Group>
-                  <Button type="submit">{signUp ? 'Sign up' : 'Login'}</Button>
-                </Form.Group>
-              </Form>
-              <Button onClick={authToggleHandler}>
-                Switch to {signUp ? 'Log In' : 'Sign Up'}
-              </Button>
-            </Jumbotron>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Container className={`mt-3 ${classes.AuthForm}`}>
+      <Row>
+        <Col>
+          <Jumbotron>
+            <h1>{signUp ? 'Sign Up New Account' : 'Log In'}</h1>
+            <Form onSubmit={authSubmitHandler}>
+              <Form.Group>
+                <Form.Label>Username:</Form.Label>
+                <Form.Row>
+                  <Col>
+                    <Form.Control ref={usernameInputRef} />
+                  </Col>
+                </Form.Row>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Password:</Form.Label>
+                <Form.Row>
+                  <Col>
+                    <Form.Control type="password" ref={passwordInputRef} />
+                  </Col>
+                </Form.Row>
+              </Form.Group>
+              <Form.Group>
+                <Button type="submit">{signUp ? 'Sign up' : 'Login'}</Button>
+              </Form.Group>
+            </Form>
+            <Button onClick={authToggleHandler}>
+              Switch to {signUp ? 'Log In' : 'Sign Up'}
+            </Button>
+          </Jumbotron>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 export default AuthForm;

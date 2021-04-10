@@ -5,8 +5,8 @@ import classes from './404.module.css';
 const NotFound = () => {
   return (
     <Container className="d-flex flex-column align-items-center">
-      <Row className={('font-weight-bold', classes.OopsSize)}>Oops!</Row>
-      <Row className={('font-weight-bold', classes.NotFoundSize)}>
+      <Row className={`font-weight-bold ${classes.OopsSize}`}>Oops!</Row>
+      <Row className={`font-weight-bold ${classes.NotFoundSize}`}>
         404 - Page Not Found
       </Row>
       <Row className="text-center justify-content-center">

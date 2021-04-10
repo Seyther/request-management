@@ -1,10 +1,10 @@
+import ServerError from '../components/error/500';
+
 const InternalServerError = () => {
   return (
-    <div>
-      <h1 style={{ textAlign: 'center' }}>
-        Server encounted an error! Please try again later
-      </h1>
-    </div>
+    <>
+      <ServerError />
+    </>
   );
 };
 

@@ -1,9 +1,3 @@
-.NotFound {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .OopsSize {
   font-size: 120px;
 }
