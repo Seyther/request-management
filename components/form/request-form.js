@@ -51,53 +51,51 @@ const RequestForm = () => {
   }
 
   return (
-    <div className={classes.RequestForm}>
-      <Container>
-        <Row>
-          <Col>
-            <Jumbotron>
-              <h1>Submit New Request</h1>
-              <br />
-              <Form onSubmit={submitFormHandler}>
-                <Form.Group>
-                  <Form.Label>Requested By:</Form.Label>
-                  <Form.Row>
-                    <Col>
-                      <Form.Control ref={requestorInputRef} />
-                    </Col>
-                  </Form.Row>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Title:</Form.Label>
-                  <Form.Row>
-                    <Col>
-                      <Form.Control ref={titleInputRef} />
-                    </Col>
-                  </Form.Row>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Description:</Form.Label>
-                  <Form.Row>
-                    <Col>
-                      <Form.Control as="textarea" ref={descInputRef} />
-                    </Col>
-                  </Form.Row>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Priority: </Form.Label>
-                  <Form.Control as="select" ref={priorityInputRef}>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                  </Form.Control>
-                </Form.Group>
-                <Button type="submit">Submit</Button>
-              </Form>
-            </Jumbotron>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Container className="mt-3">
+      <Row>
+        <Col>
+          <Jumbotron>
+            <h1>Submit New Request</h1>
+            <br />
+            <Form onSubmit={submitFormHandler}>
+              <Form.Group>
+                <Form.Label>Requested By:</Form.Label>
+                <Form.Row>
+                  <Col>
+                    <Form.Control ref={requestorInputRef} />
+                  </Col>
+                </Form.Row>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Title:</Form.Label>
+                <Form.Row>
+                  <Col>
+                    <Form.Control ref={titleInputRef} />
+                  </Col>
+                </Form.Row>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Description:</Form.Label>
+                <Form.Row>
+                  <Col>
+                    <Form.Control as="textarea" ref={descInputRef} />
+                  </Col>
+                </Form.Row>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Priority: </Form.Label>
+                <Form.Control as="select" ref={priorityInputRef}>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </Form.Control>
+              </Form.Group>
+              <Button type="submit">Submit</Button>
+            </Form>
+          </Jumbotron>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

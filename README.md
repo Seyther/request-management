@@ -6,10 +6,10 @@ A simple website to track daily job requests
 
 - Frontend: React, Next.js, Bootstrap
 - Authentication: NextAuth.js with bcryptjs
-- Backend: React & Next.js
+- Backend: Next.js
 - Database: MongoDB
 
-# Getting Started
+## Getting Started
 
 - Download and install the latest version of Node.js
 - Clone the project

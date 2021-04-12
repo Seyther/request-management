@@ -36,3 +36,37 @@ export async function getServerSideProps(context) {
 }
 
 export default AllRequestPage;
+
+// code for polling to update others
+/*const [data, setData] = useState(props.data);
+  
+  useEffect(() => {
+    const dataPollingHandler = setInterval(() => {
+      console.log('fetching data...');
+      fetch('/api/requests')
+        .then(response => {
+          return response.json();
+        })
+        .then(result => {
+          console.log('before');
+          console.log(data);
+          console.log('after');
+          console.log(result.requests);
+          setData(result.requests);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }, 60000);
+
+    return () => {
+      console.log('cleaning up..');
+      clearInterval(dataPollingHandler);
+    };
+  }, []);
+
+  return (
+    <>
+      <GridView data={data} />
+    </>
+  );*/
