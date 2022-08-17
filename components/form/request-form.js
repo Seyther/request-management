@@ -1,7 +1,7 @@
 import { useRef } from 'react';
-import { Form, Button, Container, Row, Col, Jumbotron } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 
 import classes from './request-form.module.css';
 
@@ -54,7 +54,7 @@ const RequestForm = () => {
     <Container className="mt-3">
       <Row>
         <Col>
-          <Jumbotron>
+          <div>
             <h1>Submit New Request</h1>
             <br />
             <Form onSubmit={submitFormHandler}>
@@ -92,7 +92,7 @@ const RequestForm = () => {
               </Form.Group>
               <Button type="submit">Submit</Button>
             </Form>
-          </Jumbotron>
+          </div>
         </Col>
       </Row>
     </Container>

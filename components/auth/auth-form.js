@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
-import { Container, Row, Col, Jumbotron, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/client';
+import { signIn } from 'next-auth/react';
 
 import classes from './auth-form.module.css';
 
@@ -59,24 +59,24 @@ const AuthForm = () => {
     <Container className={`mt-3 ${classes.AuthForm}`}>
       <Row>
         <Col>
-          <Jumbotron>
+          <div>
             <h1>{signUp ? 'Sign Up New Account' : 'Log In'}</h1>
             <Form onSubmit={authSubmitHandler}>
               <Form.Group>
                 <Form.Label>Username:</Form.Label>
-                <Form.Row>
+                <Row>
                   <Col>
                     <Form.Control ref={usernameInputRef} />
                   </Col>
-                </Form.Row>
+                </Row>
               </Form.Group>
               <Form.Group>
                 <Form.Label>Password:</Form.Label>
-                <Form.Row>
+                <Row>
                   <Col>
                     <Form.Control type="password" ref={passwordInputRef} />
                   </Col>
-                </Form.Row>
+                </Row>
               </Form.Group>
               <Form.Group>
                 <Button type="submit">{signUp ? 'Sign up' : 'Login'}</Button>
@@ -85,7 +85,7 @@ const AuthForm = () => {
             <Button onClick={authToggleHandler}>
               Switch to {signUp ? 'Log In' : 'Sign Up'}
             </Button>
-          </Jumbotron>
+          </div>
         </Col>
       </Row>
     </Container>

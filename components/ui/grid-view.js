@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Table, Button, Container, Jumbotron } from 'react-bootstrap';
+import { Table, Button, Container } from 'react-bootstrap';
 import { Trash, PencilSquare } from 'react-bootstrap-icons';
 import classes from './grid-view.module.css';
 
@@ -31,7 +31,7 @@ const GridView = props => {
 
   return (
     <Container className="mt-3">
-      <Jumbotron>
+      <div>
         <h1>All Requests</h1>
         <Table bordered responsive>
           <thead className="bg-info">
@@ -94,7 +94,7 @@ const GridView = props => {
             })}
           </tbody>
         </Table>
-      </Jumbotron>
+      </div>
     </Container>
   );
 };
