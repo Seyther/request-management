@@ -12,7 +12,7 @@
     "bootstrap": "^4.6.0",
     "mongodb": "^3.6.9",
     "next": "^12.1.0",
-    "next-auth": "^3.24.0",
+    "next-auth": "^3.29.10",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
     "react-bootstrap-icons": "^1.5.0",
